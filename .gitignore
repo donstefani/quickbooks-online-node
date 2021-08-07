@@ -1,0 +1,10 @@
+*.code-workspace
+node_modules/*
+.env*
+.eslintrc.js
+.prettierrc
+config/*
+coverage/*
+.nyc_output/*
+.serverless/*
+storage/

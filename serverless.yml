@@ -1,0 +1,45 @@
+service: quickbooks-sync
+useDotenv: true
+configValidationMode: off
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda: '*'
+        - rds: '*'
+      Resource:
+        - '*'
+
+  stage: ${env:STAGE}
+  region: ${env:REGION}
+  role: ${env:ROLE}
+
+  vpc:
+    securityGroupIds: ${file(config/vpc-config-${env:STAGE}.js):securityGroups}
+    subnetIds: ${file(config/vpc-config-${env:STAGE}.js):subnets}
+
+functions:
+  get_oauth_tokens:
+    handler: refreshAouthToken.handler
+    timeout: 600
+    events:
+      - schedule: rate(45 minutes)
+  qb_sync:
+    handler: quickbooksSyncCron.handler
+    timeout: 900
+    events:
+      - schedule: cron(15 7 * * ? *)
+  farm_bills:
+    handler: farmBills.handler
+    timeout: 900
+    events:
+      - schedule: cron(16 7 * * ? *)
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+  - serverless-plugin-include-dependencies

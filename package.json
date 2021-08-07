@@ -1,0 +1,59 @@
+{
+  "name": "quickbooks-sync",
+  "version": "1.0.0",
+  "description": "Update Quickbooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=development nyc --reporter=html --reporter=text node_modules/mocha/bin/mocha",
+    "start": "NODE_ENV=development sls offline --cacheInvalidationRegex"
+  },
+  "keywords": [
+    "Shopify",
+    "Quickbooks"
+  ],
+  "author": "Don Stefani",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "lambda-tester": "^4.0.1",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.2.1",
+    "proxyquire": "^2.1.3",
+    "sequelize-test-helpers": "^1.3.2",
+    "serverless-dotenv-plugin": "^3.2.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-plugin-include-dependencies": "^4.1.0",
+    "sinon": "^9.2.4",
+    "sinon-chai": "^3.5.0",
+    "supertest": "^6.1.3"
+  },
+  "dependencies": {
+    "atob": "^2.1.2",
+    "aws-sdk": "^2.840.0",
+    "btoa": "^1.2.1",
+    "client-oauth2": "^4.3.3",
+    "csrf": "^3.1.0",
+    "dotenv": "^8.2.0",
+    "dotenv-flow": "^3.2.0",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "intuit-oauth": "^3.0.2",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "ngrok": "^3.4.0",
+    "path": "^0.12.7",
+    "rsa-pem-from-mod-exp": "^0.8.4",
+    "serverless": "^2.23.0",
+    "serverless-http": "^2.7.0",
+    "serverless-mysql": "^1.5.4",
+    "uuid": "^8.3.2"
+  }
+}
