@@ -4,7 +4,6 @@ const env = process.env.NODE_ENV || 'development';
 // const env = 'production';
 const dbConf = require('../config/config.json')[env];
 
-console.log('CONNECTION', dbConf);
 AWS.config.logger = console;
 // eslint-disable-next-line import/order
 const mysql = require('serverless-mysql')({
